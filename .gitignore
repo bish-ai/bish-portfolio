@@ -38,3 +38,18 @@ yarn-error.log*
 *.swp
 *.swo
 *~
+
+# AI-related files
+.cursor/
+.copilot/
+.ai/
+*.ai
+.aider*
+.llamaindex/
+.openai/
+.anthropic/
+*.airc
+.gptignore
+.aider.conf.json
+copilot-instructions.md
+cursor-instructions.md
