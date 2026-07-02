@@ -36,7 +36,8 @@
     "three": "^r128",
     "canvas-confetti": "^1.9.0",
     "react-intersection-observer": "^9.8.1",
-    "sonner": "^1.2.0"
+    "sonner": "^1.2.0",
+    "@anthropic-ai/sdk": "^0.24.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.13.2",
