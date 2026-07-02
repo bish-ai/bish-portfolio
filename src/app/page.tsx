@@ -7,6 +7,7 @@ import { Experience } from "@/components/experience/Experience";
 import { Projects } from "@/components/projects/Projects";
 import { AIHighlights } from "@/components/ai/AIHighlights";
 import { AIFeatures } from "@/components/ai/AIFeatures";
+import { JokeGenerator } from "@/components/jokes/JokeGenerator";
 import { Certifications } from "@/components/certifications/Certifications";
 import { Achievements } from "@/components/achievements/Achievements";
 import { Education } from "@/components/education/Education";
@@ -25,6 +26,7 @@ export default function Home() {
       <Projects />
       <AIHighlights />
       <AIFeatures />
+      <JokeGenerator />
       <Certifications />
       <Achievements />
       <Education />
