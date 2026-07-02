@@ -1,38 +1,4 @@
-import type { NextConfig } from "next";
+// next.config.ts was converted to next.config.mjs for AWS Amplify compatibility.
+// The original config is preserved in next.config.ts.bak.
 
-const nextConfig: NextConfig = {
-  typescript: {
-    ignoreBuildErrors: false,
-  },
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
-  images: {
-    formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-  },
-  headers: async () => {
-    return [
-      {
-        source: "/:path*",
-        headers: [
-          {
-            key: "X-DNS-Prefetch-Control",
-            value: "on",
-          },
-          {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-        ],
-      },
-    ];
-  },
-};
-
-export default nextConfig;
+// Intentionally empty placeholder to avoid using a TypeScript Next config in CI.
