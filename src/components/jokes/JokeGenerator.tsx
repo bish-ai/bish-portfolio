@@ -26,9 +26,15 @@ export function JokeGenerator() {
     try {
       const response = await fetch("/api/jokes/random");
       const data = await response.json();
-      setJoke(data.error ? data.fallback : data);
+      setJoke(data);
     } catch (error) {
       console.error("Error fetching joke:", error);
+      setJoke({
+        setup: "Why did the developer go broke?",
+        punchline: "Because they lost their cache!",
+        type: "programming",
+        id: 0,
+      });
     } finally {
       setIsLoading(false);
     }

@@ -2,14 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    // Using official Joke API - No authentication required
-    const response = await fetch("https://official-joke-api.appspot.com/random_joke", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      next: { revalidate: 60 }, // Cache for 60 seconds
-    });
+    const response = await fetch("https://official-joke-api.appspot.com/random_joke");
 
     if (!response.ok) {
       throw new Error(`API responded with status: ${response.status}`);
@@ -19,10 +12,10 @@ export async function GET() {
 
     return NextResponse.json(
       {
-        setup: joke.setup,
-        punchline: joke.punchline,
-        type: joke.type,
-        id: joke.id,
+        setup: joke.setup || "Why did the developer go broke?",
+        punchline: joke.punchline || "Because they lost their cache!",
+        type: joke.type || "programming",
+        id: joke.id || 0,
       },
       { status: 200 }
     );
@@ -30,19 +23,12 @@ export async function GET() {
     console.error("Error fetching joke:", error);
     return NextResponse.json(
       {
-        error: "Failed to fetch joke",
-        fallback: {
-          setup: "Why did the AI go to school?",
-          punchline: "To improve its training data!",
-          type: "general",
-        },
+        setup: "Why did the developer go broke?",
+        punchline: "Because they lost their cache!",
+        type: "programming",
+        id: 0,
       },
-      { status: 500 }
+      { status: 200 }
     );
   }
-}
-
-export async function POST() {
-  // POST endpoint also returns random joke
-  return GET();
 }
