@@ -1,45 +1,16 @@
 {
-  "name": "bishal-portfolio",
-  "version": "1.0.0",
-  "description": "AI Engineer Portfolio - Production Ready",
-  "private": true,
+  "name": "workspace",
+  "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
-    "type-check": "tsc --noEmit"
+    "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
+    "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "typecheck:libs": "tsc --build",
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "next": "^14.1.0",
-    "typescript": "^5.3.3",
-    "@types/node": "^20.10.0",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
-    "tailwindcss": "^3.4.0",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.32",
-    "framer-motion": "^10.16.4",
-    "lucide-react": "^0.292.0",
-    "react-hook-form": "^7.48.0",
-    "zod": "^3.22.4",
-    "@hookform/resolvers": "^3.3.4",
-    "emailjs-com": "^3.2.0",
-    "clsx": "^2.0.0",
-    "tailwind-merge": "^2.2.1"
-  },
+  "private": true,
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.13.2",
-    "@typescript-eslint/parser": "^6.13.2",
-    "eslint": "^8.55.0",
-    "eslint-config-next": "^14.1.0",
-    "prettier": "^3.1.0"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
+    "prettier": "^3.8.4",
+    "typescript": "~5.9.3"
   }
 }
