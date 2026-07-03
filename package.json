@@ -4,11 +4,20 @@
   "license": "MIT",
   "scripts": {
     "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
-    "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "dev": "cd .migration-backup && pnpm run dev",
+    "build": "cd .migration-backup && pnpm run build",
+    "start": "cd .migration-backup && pnpm run start",
+    "lint": "cd .migration-backup && pnpm run lint",
+    "format": "cd .migration-backup && pnpm run format",
     "typecheck:libs": "tsc --build",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
   "private": true,
+  "dependencies": {
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "prettier": "^3.8.4",
     "typescript": "~5.9.3"
