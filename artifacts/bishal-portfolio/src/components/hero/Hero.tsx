@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Download, Mail } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/utils/animations";
 
-const roles = ["AI Engineer", "Full Stack Developer", "ML Engineer"];
+const roles = ["AI Engineer", "MLOps Engineer", "ML Engineer"];
 
 export function Hero() {
   const [currentRole, setCurrentRole] = useState(0);
@@ -81,7 +81,7 @@ export function Hero() {
             variants={fadeInUp}
             className="max-w-2xl text-lg text-gray-400"
           >
-            Passionate about building intelligent systems and solving complex problems through AI, Machine Learning, and Full-Stack Development. With expertise in Deep Learning, NLP, Computer Vision, and Cloud Technologies.
+            AI/ML Engineer with hands-on experience building, deploying, and monitoring ML models in production. Skilled in MLOps practices — model versioning, CI/CD for ML pipelines, REST API serving with FastAPI, and on-device deployment with TensorFlow Lite.
           </motion.p>
 
           {/* CTA Buttons */}

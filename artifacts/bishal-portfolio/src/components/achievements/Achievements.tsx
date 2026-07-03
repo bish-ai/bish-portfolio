@@ -15,6 +15,11 @@ export function Achievements() {
       Target: <Icons.Target size={32} />,
       Briefcase: <Icons.Briefcase size={32} />,
       GitBranch: <Icons.GitBranch size={32} />,
+      Zap: <Icons.Zap size={32} />,
+      Database: <Icons.Database size={32} />,
+      Server: <Icons.Server size={32} />,
+      Award: <Icons.Award size={32} />,
+      Brain: <Icons.Brain size={32} />,
     };
     return iconMap[iconName] || <Icons.Award size={32} />;
   };
