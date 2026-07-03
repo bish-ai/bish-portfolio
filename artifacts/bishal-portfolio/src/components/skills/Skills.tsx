@@ -6,12 +6,12 @@ import { SKILLS } from "@/lib/constants";
 import { staggerContainer, staggerItem } from "@/utils/animations";
 
 const categories = [
-  "Programming",
-  "Frontend",
-  "Backend",
-  "AI/ML",
-  "Database",
-  "Cloud",
+  "Languages",
+  "ML Frameworks",
+  "MLOps & Deployment",
+  "Deep Learning / AI",
+  "NLP",
+  "Data & Pipelines",
 ];
 
 export function Skills() {
@@ -41,42 +41,29 @@ export function Skills() {
 
         {/* Skills Grid */}
         <motion.div
-          className="space-y-8"
+          className="space-y-10"
           variants={staggerContainer}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
         >
           {categories.map((category) => {
             const categorySkills = SKILLS.filter((s) => s.category === category);
+            if (!categorySkills.length) return null;
             return (
               <motion.div key={category} variants={staggerItem}>
-                <h3 className="mb-6 text-2xl font-bold text-white">{category}</h3>
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <h3 className="mb-4 text-lg font-semibold text-blue-400 uppercase tracking-wider">
+                  {category}
+                </h3>
+                <div className="flex flex-wrap gap-3">
                   {categorySkills.map((skill) => (
-                    <motion.div
+                    <motion.span
                       key={skill.name}
-                      className="space-y-3 rounded-lg bg-slate-800/50 p-4 backdrop-blur-sm border border-slate-700/50"
-                      whileHover={{
-                        y: -5,
-                        boxShadow: "0 20px 25px -5px rgba(59, 130, 246, 0.1)",
-                      }}
-                      transition={{ duration: 0.3 }}
+                      className="rounded-full border border-slate-700/60 bg-slate-800/60 px-4 py-2 text-sm font-medium text-gray-200 backdrop-blur-sm transition-colors duration-200 hover:border-blue-400/60 hover:bg-blue-400/10 hover:text-blue-300"
+                      whileHover={{ y: -2 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
                     >
-                      <div className="flex items-center justify-between">
-                        <span className="font-semibold text-white">{skill.name}</span>
-                        <span className="text-sm font-medium text-blue-400">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="h-2 w-full overflow-hidden rounded-full bg-slate-700">
-                        <motion.div
-                          className="h-full bg-gradient-to-r from-blue-400 to-purple-600"
-                          initial={{ width: 0 }}
-                          animate={isVisible ? { width: `${skill.level}%` } : { width: 0 }}
-                          transition={{ duration: 1, delay: 0.1 }}
-                        />
-                      </div>
-                    </motion.div>
+                      {skill.name}
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>
